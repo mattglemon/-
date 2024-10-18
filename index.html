@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <title>我的微信</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<script src="https://gitee.com/Jack___wu/vx/raw/main/js/vue.js"></script>
+<script>
+    // const userAgent = navigator.userAgent;
+    // if (userAgent.indexOf("Wechat") === -1 && userAgent.indexOf("WeChat") === -1) {
+    //     location.href = "https://www.wechat.com/"
+    // }
+    // function getParametersAsObject() {
+    //     const url = location.href;
+    //     const index = url.indexOf('?');
+    //     if (index === -1) {
+    //         return {};
+    //     }
+    //     const queryString = url.substring(index + 1);
+    //     const parameterPairs = queryString.split('&');
+    //     const parameters = {};
+    //     for (const pair of parameterPairs) {
+    //         let [key, value] = pair.split('=');
+    //         // 如果值是编码形式，进行解码
+    //         if (key.includes('%')) {
+    //             key = decodeURIComponent(key);
+    //         }
+    //         if (value.includes('%')) {
+    //             value = decodeURIComponent(value);
+    //         }
+    //         parameters[key] = value;
+
+    //     }
+    //     return parameters;
+    // }
+
+    // const args = getParametersAsObject();
+    // console.log(args);
+
+    url = "https://gitee.com/Jack___wu/vx/raw/main/"
+    // url =""
+    // const data = {
+    //     "姓名": args['姓名'],
+    //     "性别": args['性别'],
+    //     "微信号": args['微信号'],
+    //     "个性签名": args['个性签名'],
+    //     "地区": args['地区'],
+    //     // "UserImg": url + "img/Jack.jpg",
+    //     "UserImg": args['头像图片'],
+    //     "man": url + "img/man.png",
+    //     "woman": url + "img/woman.png",
+    //     "go": url + "img/go.png",
+    //     "showImg": args['展示图片']
+    //     // "showImg": url + "img/沙琪玛.png"
+    // }
+    const args = {
+        "姓名": "高峰",
+        "性别": "男",
+        "微信号": "Matt19950323",
+        "个性签名": "落叶",
+        "地区": "中国",
+        "头像图片": "img/头像.jpg",
+  
+        "展示图片": "img/xuebing.jpg"
+        // https://github.com/JackWuJ/Jack_/blob/main/img/sweet.png?raw=true
+    }
+
+    
+    const data = {
+        "姓名": args['姓名'],
+        "性别": args['性别'],
+        "微信号": args['微信号'],
+        "个性签名": args['个性签名'],
+        "地区": args['地区'],
+        // "UserImg": url + "img/Jack.jpg",
+        "UserImg": args['头像图片'],
+        "man": url + "img/man.png",
+        "woman": url + "img/woman.png",
+        "go": url + "img/go.png",
+        "showImg": args['展示图片']
+        // "showImg": url + "img/沙琪玛.png"
+    }
+
+    
+
+    
+</script>
+
+<style>
+    * {
+        user-select: none;
+    }
+
+
+    body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        background-color: #dadada;
+        font-size: 17px;
+        overflow: hidden;
+    }
+
+    #Card {
+        background-color: white;
+        padding: 0 25px 0 25px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 16.79841897vh;
+    }
+
+    #Card .left,
+    #Card .right {
+        height: 50%;
+    }
+
+    #Card .left {
+        margin-left: 0.85638999vh;
+    }
+
+    #Card .left img {
+        height: 66px;
+        width: 66px;
+        border-radius: 10px;
+    }
+
+    #Card .right {
+        font-weight: 600;
+        margin-left: 2.70092227vh;
+    }
+
+    #Card .right .top {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 21px;
+    }
+
+    #Card .right .top img {
+        margin-left: 10px;
+        height: 1.97628458vh;
+        color: red;
+    }
+
+    #Card .right .foot p {
+        font-weight: 400;
+        margin-top: 10px;
+        color: #878787;
+        font-size: 14px;
+        line-height: 0.6rem;
+    }
+
+    .lineWarp {
+        width: 100%;
+        background-color: white;
+        padding-left: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lineWarp .line {
+        height: 1px;
+        background-color: #dadada;
+        width: 100%;
+    }
+
+    #beiZhuBiaoQian {
+        padding: 0 25px 0 20px;
+        background-color: white;
+        height: 7.24637681vh;
+        margin-bottom: 1.58102767vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #beiZhuBiaoQian .go_img {
+        height: 30px;
+    }
+
+    #geXingQianMing,
+    #laiYuan {
+        height: 7.90513834vh;
+        background-color: white;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 25px 0 20px;
+    }
+
+    #geXingQianMing .gexingqianmingAndLaiyuan,
+    #laiYuan .gexingqianmingAndLaiyuan {
+        min-width: 70px;
+    }
+
+    #geXingQianMing .right,
+    #laiYuan .right {
+        margin-left: 10px;
+        color: #878787;
+        word-wrap: break-word;
+    }
+
+    #geXingQianMing {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    #geXingQianMing img {
+        width: 20px;
+        /*       height: 20px;*/
+        z-index: 1000;
+    }
+
+    #tianJiaDaoTongXunLu {
+        margin-top: 1.58102767vh;
+        height: 7.18050066vh;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #5b6c96;
+        font-weight: 500;
+    }
+</style>
+
+<body>
+<div id="app">
+    <div id="Card">
+        <div class="left">
+            <img v-bind:src="UserImg" alt="" class="header_img">
+        </div>
+        <div class="right">
+            <div class="top">
+                <div>{{ 姓名 }}</div>
+                <span v-if="性别==='男'"><img v-bind:src="man" alt=""></span>
+                <span v-else><img v-bind:src="woman" alt=""></span>
+
+            </div>
+            <div class="foot">
+                <p class="diqu_text">微信号：{{ 微信号 }}</p>
+                <p class="diqu_text">地区：{{地区}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="lineWarp">
+        <div class="line"></div>
+    </div>
+    <!-- 备注和标签 -->
+    <div id="beiZhuBiaoQian">
+        <div>备注和标签</div>
+        <img v-bind:src="go" alt="" class="go_img">
+    </div>
+
+    <!-- 个性签名 -->
+    <div id="geXingQianMing">
+        <div class="left">
+            <div class="gexingqianmingAndLaiyuan">个性签名</div>
+        </div>
+        <div class="right">{{个性签名}}&nbsp</div>
+        <img v-bind:src="showImg" alt=""
+             class="geXingQianMing img">
+    </div>
+    <div class="lineWarp">
+        <div class="line"></div>
+    </div>
+    <!-- 来源 -->
+    <div id="laiYuan">
+        <div class="left gexingqianmingAndLaiyuan laiyuan_text">来源</div>
+        <div class="right laizisaoyisao_text">来自扫一扫</div>
+    </div>
+    
+    <div id="tianJiaDaoTongXunLu">添加到通讯录</div>
+</div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data: data,
+    })
+</script>
+<script>
+    let scale = 1
+    let img = document.getElementsByClassName("geXingQianMing img")[0]
+    let x = 0
+    let y = 0
+    x_old = 0
+    y_old = 0
+    ontouchstart = (e) => {
+        if (x === y && y === 0) {
+            x_old = e.touches[0].clientX
+            y_old = e.touches[0].clientY
+        }
+        ontouchmove = (e) => {
+            e.preventDefault()
+            x = e.touches[0].clientX
+            y = e.touches[0].clientY
+            console.log(y)
+            img.style.transform = `translate(${x - x_old}px,${y - y_old}px) scale(${scale})`
+            if (x + img.width * scale / 2 > innerWidth || x - img.width * scale / 2 < 0 ||
+                y + img.height * scale / 2 > innerHeight || x - img.height * scale / 2 < 0) {
+                img.style.width = "0px"
+                img.style.height = "0px"
+            }
+            ontouchend = () => {
+                x = x - x_old
+                y = y - y_old
+                ontouchmove = null
+            }
+        }
+        ontouchend = () => {
+            // console.log(img.style.transform)
+            img.style.transform = `translate(${x}px,${y}px) scale(${++scale})`
+            ontouchmove = null
+        }
+    }
+    // onmousedown = (e) => {
+    //     if (x === y && y === 0) {
+    //         x_old = e.clientX
+    //         y_old = e.clientY
+    //     }
+    //     onmousemove = (e) => {
+    //
+    //         e.preventDefault()
+    //         x = e.clientX
+    //         y = e.clientY
+    //         console.log(x)
+    //
+    //         img.style.transform = `translate(${x - x_old}px,${y - y_old}px) scale(${scale})`
+    //         if (x + img.width * scale / 2 > innerWidth || x - img.width * scale / 2 < 0) {
+    //             img.style.width = "0px"
+    //             img.style.height = "0px"
+    //         }
+    //         onmouseup = () => {
+    //             x = x - x_old
+    //             y = y - y_old
+    //             onmousemove = null
+    //         }
+    //     }
+    //     onmouseup = () => {
+    //         img.style.transform = `translate(${x}px,${y}px) scale(${++scale})`
+    //         onmousemove = null
+    //     }
+    // }
+</script>
+
+
+</html>
